@@ -12,6 +12,11 @@
     <string name="custom_notification_hint">Notification Message Text Goes Here.</string>
     <string name="custom_notification_button">Send Custom Notification</string>
 
+    <string name="voice_reply_notification_button">Send Voice Reply Notification</string>
+    <string name="voice_reply_notification_title">Voice Reply Notification Title</string>
+    <string name="voice_reply_notification_message">Please reply to this message.</string>
+    <string name="voice_reply_response_formatted" formatted="true">You replied with %1$s</string>
+    <string name="voice_reply_instructions">Please select one of these options:</string>
     <string-array name="notification_voice_options">
         <item>Ok</item>
         <item>Great</item>
