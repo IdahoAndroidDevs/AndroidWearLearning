@@ -5,4 +5,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="hello_round">Hello Round World!</string>
     <string name="hello_square">Hello Square World!</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="second_hello_square">Second Activity Square</string>
+    <string name="second_hello_round">Second Activity Round</string>
 </resources>
