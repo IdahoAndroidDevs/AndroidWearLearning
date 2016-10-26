@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">AndroidWearLearning</string>
+    <string name="title_activity_notifications">NotificationsActivity</string>
+    <string name="notifications_launch_button">Notifications Test</string>
+
+    <string name="send_notifications_button">Send Basic Notification</string>
+    <string name="notification_title">Notification Title, Homie</string>
+    <string name="notification_message">Custom Notification Message, Yo.</string>
+    <string-array name="notification_voice_options">
+        <item>Ok</item>
+        <item>Great</item>
+        <item>I\'m Not Sure</item>
+    </string-array>
 </resources>

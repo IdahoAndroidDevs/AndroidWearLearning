@@ -5,6 +5,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               tools:context="rowley.androidwearlearning.MainActivity"
+              android:gravity="center"
               tools:deviceIds="wear_square">
 
     <TextView
