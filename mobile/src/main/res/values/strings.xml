@@ -4,8 +4,14 @@
     <string name="notifications_launch_button">Notifications Test</string>
 
     <string name="send_notifications_button">Send Basic Notification</string>
-    <string name="notification_title">Notification Title, Homie</string>
-    <string name="notification_message">Custom Notification Message, Yo.</string>
+    <string name="notification_title">Basic Notification Title</string>
+    <string name="notification_message">Basic Notification Message.</string>
+    <string name="notification_confirmation_text">You clicked the notification on the watch and it launched this activity on the phone.</string>
+
+    <string name="custom_notification_title">Custom Notification Title</string>
+    <string name="custom_notification_hint">Notification Message Text Goes Here.</string>
+    <string name="custom_notification_button">Send Custom Notification</string>
+
     <string-array name="notification_voice_options">
         <item>Ok</item>
         <item>Great</item>
