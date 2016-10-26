@@ -22,4 +22,12 @@
         <item>Great</item>
         <item>I\'m Not Sure</item>
     </string-array>
+
+    <string name="page_stack_notifications_button">Send Page Stack Notifications</string>
+    <string name="page_stack_notifications_title_formatted" formatted="true">%1$d Notifications Received.</string>
+    <string name="page_stack_notifications_message_formatted" formatted="true">You have received %1$d messages.</string>
+    <string name="page_stack_notification_random_title_formatted" formatted="true">Random Notification #%1$d</string>
+    <string name="page_stack_notification_random_message_formatted" formatted="true">This is random notification message #%1$d</string>
+    <string name="page_stack_notification_response_one">For Sure-lio.</string>
+    <string name="page_stack_notification_response_two">That\'s Cool.</string>
 </resources>

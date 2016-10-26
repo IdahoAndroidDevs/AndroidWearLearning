@@ -17,9 +17,13 @@ import butterknife.Unbinder;
 
 public class NotificationsActivity extends AppCompatActivity {
 
-    private final int BASIC_NOTIFICATION_ID = 001;
-    private final int CUSTOM_NOTIFICATION_ID = 002;
-    private final int VOICE_REPLY_NOTIFICATION_ID = 003;
+    private final int BASIC_NOTIFICATION_ID = 1;
+    private final int CUSTOM_NOTIFICATION_ID = 2;
+    private final int VOICE_REPLY_NOTIFICATION_ID = 4;
+    private final int STACK_NOTIFICATION_ID = 8;
+
+    private final int MAX_STACK_NOTIFICATION_COUNT = 2;
+    private final String STACK_NOTIFICATIONS_GROUP = "stackNotificationsGroup";
 
     public static final String EXTRA_VOICE_REPLY = "extraVoiceReply";
 
@@ -58,6 +62,13 @@ public class NotificationsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sendVoiceReplyNotification();
+            }
+        });
+
+        findViewById(R.id.page_stack_notification_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendPageStackNotifications();
             }
         });
 
@@ -129,6 +140,51 @@ public class NotificationsActivity extends AppCompatActivity {
 
         NotificationManagerCompat notifMan = NotificationManagerCompat.from(this);
         notifMan.notify(VOICE_REPLY_NOTIFICATION_ID, notification);
+    }
+
+//    @OnClick(R.id.page_stack_notification_button)
+    void sendPageStackNotifications() {
+        Intent viewIntent1 = new Intent(this, NotificationConfirmationActivity.class);
+        PendingIntent pendingIntent1 = PendingIntent.getActivity(this, STACK_NOTIFICATION_ID + 1, viewIntent1, 0);
+
+        Notification summaryNotification = new NotificationCompat.Builder(this)
+                .setContentText(String.format(getString(R.string.page_stack_notifications_message_formatted),
+                        MAX_STACK_NOTIFICATION_COUNT))
+                .setContentTitle(String.format(getString(R.string.page_stack_notifications_title_formatted),
+                        MAX_STACK_NOTIFICATION_COUNT))
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentIntent(pendingIntent1)
+                .setVibrate(new long[] {250, 250})
+                .setGroup(STACK_NOTIFICATIONS_GROUP)
+                .setGroupSummary(true).build();
+
+        NotificationCompat.Action watchAction1 = new NotificationCompat.Action.Builder(
+                R.mipmap.ic_launcher, getString(R.string.page_stack_notification_response_one), pendingIntent1)
+                .build();
+
+        Notification notification1 = new NotificationCompat.Builder(this)
+                .extend(new NotificationCompat.WearableExtender().addAction(watchAction1))
+                .setContentTitle(String.format(getString(R.string.page_stack_notification_random_title_formatted), 1))
+                .setContentText(String.format(getString(R.string.page_stack_notification_random_message_formatted), 1))
+                .setSmallIcon(R.mipmap.ic_launcher).setGroup(STACK_NOTIFICATIONS_GROUP).build();
+
+        Intent viewIntent2 = new Intent(this, NotificationConfirmationActivity.class);
+        PendingIntent pendingIntent2 = PendingIntent.getActivity(this, STACK_NOTIFICATION_ID + 2, viewIntent2, 0);
+
+        NotificationCompat.Action watchAction2 = new NotificationCompat.Action.Builder(
+                R.mipmap.ic_launcher, getString(R.string.page_stack_notification_response_two), pendingIntent2)
+                .build();
+
+        Notification notification2 = new NotificationCompat.Builder(this)
+                .extend(new NotificationCompat.WearableExtender().addAction(watchAction2))
+                .setContentTitle(String.format(getString(R.string.page_stack_notification_random_title_formatted), 2))
+                .setContentText(String.format(getString(R.string.page_stack_notification_random_message_formatted), 2))
+                .setSmallIcon(R.mipmap.ic_launcher).setGroup(STACK_NOTIFICATIONS_GROUP).build();
+
+        NotificationManagerCompat notifMan = NotificationManagerCompat.from(this);
+        notifMan.notify(STACK_NOTIFICATION_ID, summaryNotification);
+        notifMan.notify(STACK_NOTIFICATION_ID + 1, notification1);
+        notifMan.notify(STACK_NOTIFICATION_ID + 2, notification2);
     }
 
 }

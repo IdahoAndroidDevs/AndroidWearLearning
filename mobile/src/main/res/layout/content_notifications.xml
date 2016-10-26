@@ -11,6 +11,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:fillViewport="true"
+    android:clipToPadding="false"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="rowley.androidwearlearning.NotificationsActivity"
     tools:showIn="@layout/activity_notifications">
@@ -59,6 +60,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/voice_reply_notification_button"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:background="@android:color/darker_gray" />
+
+        <Button
+            android:id="@+id/page_stack_notification_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/page_stack_notifications_button"/>
 
     </LinearLayout>
 
