@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">AndroidWearLearning</string>
+
     <string name="message">Watch face tapped</string>
     <string name="my_analog_name">My Analog</string>
+
     <string name="title_activity_main">MainActivity</string>
     <string name="hello_round">Hello Round World!</string>
     <string name="hello_square">Hello Square World!</string>
+
     <string name="title_activity_second">SecondActivity</string>
     <string name="second_hello_square">Second Activity Square</string>
     <string name="second_hello_round">Second Activity Round</string>
+
+    <string name="custom_watch_name">Custom Watch Face</string>
+    <string name="battery_level_formatted" formatted="true">Level: %1$d%%</string>
 </resources>
