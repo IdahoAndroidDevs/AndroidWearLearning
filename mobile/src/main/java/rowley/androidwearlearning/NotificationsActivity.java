@@ -9,10 +9,11 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.app.RemoteInput;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.EditText;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class NotificationsActivity extends AppCompatActivity {
@@ -29,7 +30,7 @@ public class NotificationsActivity extends AppCompatActivity {
 
     private Unbinder unbinder;
 
-//    @BindView(R.id.notification_input)
+    @BindView(R.id.notification_input)
     EditText notificationInput;
 
     @Override
@@ -42,36 +43,6 @@ public class NotificationsActivity extends AppCompatActivity {
 
         unbinder = ButterKnife.bind(this);
 
-        findViewById(R.id.basic_notification_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendBasicNotification();
-            }
-        });
-
-        findViewById(R.id.custom_notification_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendCustomNotification();
-            }
-        });
-
-        notificationInput = (EditText) findViewById(R.id.notification_input);
-
-        findViewById(R.id.voice_reply_notification_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendVoiceReplyNotification();
-            }
-        });
-
-        findViewById(R.id.page_stack_notification_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendPageStackNotifications();
-            }
-        });
-
         NotificationManagerCompat.from(this).cancelAll();
     }
 
@@ -83,13 +54,13 @@ public class NotificationsActivity extends AppCompatActivity {
         }
     }
 
-//    @OnClick(R.id.basic_notification_button)
+    @OnClick(R.id.basic_notification_button)
     void sendBasicNotification() {
         displayBasicNotification(getString(R.string.notification_title),
                 getString(R.string.notification_message), BASIC_NOTIFICATION_ID);
     }
 
-//    @OnClick(R.id.custom_notification_button)
+    @OnClick(R.id.custom_notification_button)
     void sendCustomNotification() {
         displayBasicNotification(getString(R.string.custom_notification_title),
                 notificationInput.getText().toString(), CUSTOM_NOTIFICATION_ID);
@@ -115,7 +86,7 @@ public class NotificationsActivity extends AppCompatActivity {
         notifMan.notify(notificationId, notification);
     }
 
-//    @OnClick(R.id.voice_reply_notification_button)
+    @OnClick(R.id.voice_reply_notification_button)
     void sendVoiceReplyNotification() {
         Intent intent = new Intent(this, NotificationConfirmationActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -142,7 +113,7 @@ public class NotificationsActivity extends AppCompatActivity {
         notifMan.notify(VOICE_REPLY_NOTIFICATION_ID, notification);
     }
 
-//    @OnClick(R.id.page_stack_notification_button)
+    @OnClick(R.id.page_stack_notification_button)
     void sendPageStackNotifications() {
         Intent viewIntent1 = new Intent(this, NotificationConfirmationActivity.class);
         PendingIntent pendingIntent1 = PendingIntent.getActivity(this, STACK_NOTIFICATION_ID + 1, viewIntent1, 0);
