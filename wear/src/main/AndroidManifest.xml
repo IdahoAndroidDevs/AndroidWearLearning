@@ -73,8 +73,14 @@
         </activity>
 
         <activity
-            android:name=".SecondActivity"
-            android:label="@string/title_activity_second" />
+            android:name=".DataTestingActivity"
+            android:label="@string/title_activity_data_testing">
+
+            <meta-data
+                android:name="com.google.android.gms.version"
+                android:value="@integer/google_play_services_version" />
+
+        </activity>
 
     </application>
 

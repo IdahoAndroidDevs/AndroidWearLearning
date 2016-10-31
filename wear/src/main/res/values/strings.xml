@@ -14,4 +14,5 @@
 
     <string name="custom_watch_name">Custom Watch Face</string>
     <string name="battery_level_formatted" formatted="true">Level: %1$d%%</string>
+    <string name="title_activity_data_testing">DataTestingActivity</string>
 </resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="rowley.androidwearlearning.DataTestingActivity"
+              tools:deviceIds="wear_square">
+
+    <TextView
+        android:id="@+id/received_message_text"
+        android:layout_width="92dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        tools:text="@string/hello_square"/>
+
+    <ImageView
+        android:id="@+id/received_image_view"
+        android:layout_width="111dp"
+        android:layout_height="95dp"
+        android:layout_below="@id/received_message_text"
+        android:adjustViewBounds="false"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

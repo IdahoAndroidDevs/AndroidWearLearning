@@ -32,4 +32,9 @@ public class MainActivity extends AppCompatActivity {
     void goToNotificationsActivity() {
         startActivity(new Intent(this, NotificationsActivity.class));
     }
+
+    @OnClick(R.id.data_testing_button)
+    void goToDataTestingActivity() {
+        startActivity(new Intent(this, DataTestingActivity.class));
+    }
 }

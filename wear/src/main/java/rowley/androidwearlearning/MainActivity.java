@@ -5,11 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.view.WatchViewStub;
 import android.view.View;
-import android.widget.Button;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 
 public class MainActivity extends Activity {
 
-    private Button mButton;
+    private Unbinder unbinder;
+
+    @BindView(R.id.button)
+    View button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,14 +26,21 @@ public class MainActivity extends Activity {
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
             @Override
             public void onLayoutInflated(WatchViewStub stub) {
-                mButton = (Button) stub.findViewById(R.id.button);
-                mButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startActivity(new Intent(MainActivity.this, SecondActivity.class));
-                    }
-                });
+                unbinder = ButterKnife.bind(MainActivity.this, stub);
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
+    }
+
+    @OnClick(R.id.button)
+    void goToDataTestingActivity() {
+        startActivity(new Intent(this, DataTestingActivity.class));
     }
 }

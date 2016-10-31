@@ -2,6 +2,7 @@
     <string name="app_name">AndroidWearLearning</string>
     <string name="title_activity_notifications">NotificationsActivity</string>
     <string name="notifications_launch_button">Notifications Test</string>
+    <string name="data_tesing_launch_button">Data Test</string>
 
     <string name="send_notifications_button">Send Basic Notification</string>
     <string name="notification_title">Basic Notification Title</string>
@@ -30,4 +31,9 @@
     <string name="page_stack_notification_random_message_formatted" formatted="true">This is random notification message #%1$d</string>
     <string name="page_stack_notification_response_one">For Sure-lio.</string>
     <string name="page_stack_notification_response_two">That\'s Cool.</string>
+
+    <string name="title_activity_data_testing">Data Testing Activity</string>
+    <string name="send_image_button">Send Image</string>
+    <string name="send_message_button">Send Message</string>
+    <string name="send_massage_text">Enter a message to send.</string>
 </resources>
