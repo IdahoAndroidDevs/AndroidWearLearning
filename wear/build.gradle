@@ -3,7 +3,16 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 24
+    signingConfigs {
+        singleConfig {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('debug.keystore')
+            storePassword 'android'
+        }
+    }
+
+    compileSdkVersion 25
     buildToolsVersion "25.0.0"
 
     compileOptions {
@@ -15,7 +24,7 @@ android {
     defaultConfig {
         applicationId "rowley.androidwearlearning"
         minSdkVersion 21
-        targetSdkVersion 24
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
     }
@@ -23,15 +32,24 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.singleConfig
+        }
+        debug {
+            signingConfig signingConfigs.singleConfig
         }
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.google.android.support:wearable:2.0.0-alpha3'
-    compile 'com.google.android.gms:play-services-wearable:9.8.00'
-    compile 'com.android.support:palette-v7:24.2.1'
+    compile ('com.google.android.support:wearable:2.0.0-alpha3') {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+    compile('com.google.android.gms:play-services-wearable:9.8.00') {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+    compile 'com.android.support:palette-v7:25.0.0'
+    compile 'com.android.support:support-v4:25.0.0'
 
     compile 'com.jakewharton:butterknife:8.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
