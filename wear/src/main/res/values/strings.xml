@@ -8,11 +8,10 @@
     <string name="hello_round">Hello Round World!</string>
     <string name="hello_square">Hello Square World!</string>
 
-    <string name="title_activity_second">SecondActivity</string>
-    <string name="second_hello_square">Second Activity Square</string>
-    <string name="second_hello_round">Second Activity Round</string>
-
     <string name="custom_watch_name">Custom Watch Face</string>
     <string name="battery_level_formatted" formatted="true">Level: %1$d%%</string>
+
+
     <string name="title_activity_data_testing">DataTestingActivity</string>
+    <string name="data_testing_waiting_message">Waiting for input from the phone.</string>
 </resources>

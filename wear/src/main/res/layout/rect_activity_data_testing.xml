@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        tools:text="@string/hello_square"/>
+        android:text="@string/data_testing_waiting_message"/>
 
     <ImageView
         android:id="@+id/received_image_view"
