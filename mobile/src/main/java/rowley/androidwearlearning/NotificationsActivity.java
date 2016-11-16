@@ -71,7 +71,7 @@ public class NotificationsActivity extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Action watchAction = new NotificationCompat.Action.Builder(
-                R.mipmap.ic_launcher, getString(R.string.notification_title), pendingIntent).build();
+                R.mipmap.ic_launcher, title, pendingIntent).build();
 
         Notification notification = new NotificationCompat.Builder(this)
                 .setContentText(message)
